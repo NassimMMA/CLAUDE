@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ page_title }}</title>
+{% if page_description %}
+  <meta name="description" content="{{ page_description | escape }}">
+{% else %}
+  <meta name="description" content="Maquis Pro groupe les commandes de fromages, charcuteries et vins corses pour les professionnels : un seul franco, une seule livraison, sous 48h.">
+{% endif %}
+<link rel="canonical" href="{{ canonical_url }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+{{ 'theme.css' | asset_url | stylesheet_tag }}
+{{ content_for_header }}
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="{{ routes.root_url }}" class="logo">Maquis&nbsp;Pro</a>
+    <nav class="main-nav" id="main-nav">
+      <ul>
+        <li><a href="{{ routes.root_url }}#univers">Nos univers</a></li>
+        <li><a href="{{ routes.root_url }}#comment-ca-marche">Comment ça marche</a></li>
+        <li><a href="{{ routes.root_url }}#producteurs">Producteurs</a></li>
+        <li><a href="{{ routes.root_url }}#livraison">Livraison</a></li>
+        <li><a href="{{ routes.root_url }}#devis">Contact</a></li>
+      </ul>
+      <a href="{{ routes.root_url }}#devis" class="btn btn-primary nav-cta">Demander un devis</a>
+    </nav>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+  {{ content_for_layout }}
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="{{ routes.root_url }}" class="logo">Maquis&nbsp;Pro</a>
+        <p>Grossiste B2B dédié aux professionnels : nous groupons les commandes de producteurs corses pour simplifier votre approvisionnement.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Nos univers</h4>
+        <ul>
+          <li><a href="{{ routes.root_url }}#univers">Fromages corses</a></li>
+          <li><a href="{{ routes.root_url }}#univers">Charcuteries corses</a></li>
+          <li><a href="{{ routes.root_url }}#univers">Vins de Corse</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Livraison</h4>
+        <ul>
+          <li><a href="{{ routes.root_url }}#livraison">Zone C</a></li>
+          <li><a href="{{ routes.root_url }}#livraison">Zone D</a></li>
+          <li><a href="{{ routes.root_url }}#livraison">International</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+33612637976">06 12 63 79 76</a></li>
+          <li><a href="mailto:nassim@maquispro.com">nassim@maquispro.com</a></li>
+          <li><a href="{{ routes.root_url }}#devis">Demander un devis</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© {{ 'now' | date: "%Y" }} Maquis Pro — Tous droits réservés.</span>
+      <span>Mentions légales · CGV</span>
+    </div>
+  </div>
+</footer>
+
+{{ 'theme.js' | asset_url | script_tag }}
+
+</body>
+</html>
